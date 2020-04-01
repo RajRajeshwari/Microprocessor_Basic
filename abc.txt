@@ -1,0 +1,191 @@
+data Segment
+    num1 DW 12H
+    num2 DW 13H
+    Result DW ?
+data ends
+code Segment
+    Start:
+    Assume:CS:code DS:data
+    MOV AX,data 
+    MOV DS,AX
+    MOV AX,num1
+    ADD AX,num2
+    MOV Result,AX
+code ends
+end Start
+
+
+
+data segment
+    num1 DB 80H
+    num2 DB 87H
+    sum DB ?
+    carry DB ?
+data ends
+code segment
+    start:
+    assume cs:code ds:data
+    mov ax,data
+    mov ds,ax       
+    
+    mov al,num1
+    add al,num2
+    mov sum,al
+    mov bl,00h
+    adc bl,bl
+    mov carry,bl
+code ends
+end start
+
+
+
+
+data segment
+    num1 DD 12345678H
+    num2 DD 45678912H
+    sum DD ?
+    carry DB ?
+data ends
+code segment
+    start:
+    assume cs:code ds:data
+    mov ax,data
+    mov ds,ax       
+    
+    mov ax,num1
+    mov bx,num1+2
+    add ax,num2 
+    adc bx,num2+2
+    mov sum,ax 
+    mov sum+2,bx
+    mov bl,00h
+    adc bl,bl
+    mov carry,bl
+code ends
+end start
+
+
+
+data segment
+    num1 DD 12345678H
+    num2 DD 45678912H
+    sum DD ?
+    carry DB ?
+data ends
+code segment
+    start:
+    assume cs:code ds:data
+    mov ax,data
+    mov ds,ax       
+    
+    mov ax,num1
+    mov bx,num1+2
+    add ax,num2 
+    adc bx,num2+2
+    mov sum,ax 
+    mov sum+2,bx
+    mov bl,00h
+    adc bl,bl
+    mov carry,bl
+code ends
+end start
+
+
+
+
+
+data segment
+    num1 DW 1234h
+    num2 DW 1234h
+    sum DW ?
+    carry DB ?
+data ends
+code segment
+    start:
+    assume cs:code ds:data
+    mov ax,data
+    mov ds,ax       
+    
+    mov ax,num1
+    add ax,num2 
+    mov sum,ax 
+    mov bl,00h
+    adc bl,bl
+    mov carry,bl
+code ends
+end start
+
+
+
+
+data segment
+    num1 DB 80H
+    num2 DB 87H
+    dif DB ?
+    borrow DB ?   
+data ends
+code segment
+    start:
+    assume cs:code ds:data
+    mov ax,data
+    mov ds,ax       
+    
+    mov al,num1
+    sub al,num2
+    mov dif,al
+    mov bl,00h
+    adc bl,bl
+    mov borrow,bl
+code ends
+end start
+
+
+
+
+data segment
+    num1 DW 1234H
+    num2 DW 4321H
+    dif DW ?
+    borrow DB ?   
+data ends
+code segment
+    start:
+    assume cs:code ds:data
+    mov ax,data
+    mov ds,ax       
+    
+    mov ax,num1
+    sub ax,num2
+    mov dif,ax
+    mov bl,00h
+    adc bl,bl
+    mov borrow,bl
+code ends
+end start
+
+
+
+
+data segment
+    num1 DD 12345678H
+    num2 DD 87654321H
+    dif DD ?
+    borrow DB ?   
+data ends
+code segment
+    start:
+    assume cs:code ds:data
+    mov ax,data
+    mov ds,ax       
+    
+    mov ax,num1 
+    mov bx,num1+2
+    sub ax,num2 
+    sbb bx,num2+2
+    mov dif,ax
+    mov dif+2,bx
+    mov bl,00h
+    adc bl,bl
+    mov borrow,bl
+code ends
+end start
